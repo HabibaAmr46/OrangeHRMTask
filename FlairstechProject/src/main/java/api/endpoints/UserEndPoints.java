@@ -33,7 +33,7 @@ public class UserEndPoints {
 				
 	}
 	
-	public static Response deleteEmployee(Map requestBody)
+	public static Response deleteUser(Map requestBody)
 	{
 		
 		Response response=given()

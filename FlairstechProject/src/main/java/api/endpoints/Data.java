@@ -15,11 +15,11 @@ public class Data {
 		requestBody.put("password", "test1234");
 		requestBody.put("status", true);
 		requestBody.put("userRoleId", 1);
-		requestBody.put("empNumber", 102);
+		requestBody.put("empNumber", 215);
 		return requestBody;
 	}
 	
-	public static Map getUpdateEmployeeBody(int userID) {
+	public static Map getDeleteUserBody(int userID) {
 
 		Map<String, Object> requestBody = new HashMap<String, Object>();
 		ArrayList<Integer> idsArray=new ArrayList<Integer>();

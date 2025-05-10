@@ -29,9 +29,9 @@ public class APIScenario {
 		Response createUserResponse = UserEndPoints.addUser(Data.getAddUserBody(), seleniumCookies);
 		int userID = createUserResponse.body().jsonPath().getInt("data.id");
 		
-		Response updateEmployeeResponse = UserEndPoints.deleteEmployee(Data.getUpdateEmployeeBody(userID));
+		Response deleteUserResponse = UserEndPoints.deleteUser(Data.getDeleteUserBody(userID));
 
-		Assert.assertTrue(updateEmployeeResponse.statusCode()==200);
+		Assert.assertTrue(deleteUserResponse.statusCode()==200);
 		
 		BrowserFactory.closeBrowserInstance(driver);
 	}
