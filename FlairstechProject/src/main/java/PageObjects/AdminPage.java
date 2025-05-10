@@ -19,7 +19,7 @@ public class AdminPage {
 	private WebDriver driver;
 	private static JSONObject testData;
 	private By adminButton = By.xpath("//span[text()='Admin']/parent::a");
-	private By noOfRecords=By.xpath("//span[contains(.,'Records')]");
+	private By noOfRecords=By.xpath("//span[contains(.,'Record')]");
 	private By addButton=By.xpath("//button[contains(.,'Add')]");
 	private By selectLocator = By.cssSelector(".oxd-select-text-input");
 	private By employeeName=By.cssSelector("input[placeholder='Type for hints...']");
@@ -55,13 +55,15 @@ public class AdminPage {
 	public String fillRequiredData() throws InterruptedException
 	{
 		String username=JsonFileManager.getJsonValue(testData,"userName")+System.currentTimeMillis();
+		By autoSuggestiveSelectOption=By.xpath("//span[contains(text(),'"+JsonFileManager.getJsonValue(testData,"empName")+"')]");
+		
 		ElementActions.type(driver, userNameLocator, username);
 		ElementActions.type(driver, passwordLocator, JsonFileManager.getJsonValue(testData,"password"));
 		ElementActions.type(driver, confirmPasswordLocator, JsonFileManager.getJsonValue(testData,"confirmPassword"));
 		selectElementFromDropDown(0, JsonFileManager.getJsonValue(testData,"userRole"));
 		selectElementFromDropDown(1, JsonFileManager.getJsonValue(testData,"status"));
 		ElementActions.type(driver, employeeName, JsonFileManager.getJsonValue(testData,"empName"));
-		ElementActions.clickElement(driver, getSelectLocator(JsonFileManager.getJsonValue(testData,"empNameTotal")));
+		ElementActions.clickElement(driver, autoSuggestiveSelectOption);
 		return username;
 	}
 	
