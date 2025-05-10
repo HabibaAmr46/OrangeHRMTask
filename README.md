@@ -1,0 +1,12 @@
+ **Root**
+  - **src**
+    - **main**
+      - **pageObjects**: Include page classes(locators and their actions)
+      - **utils**: Utility classes( ElementActions, BrowserFactory, JsonFileManger,..)
+      - **api.endpoints**: Include classes:Post and Delete request,Routes and Data for apis.
+      - **resources**: Include Test Data files (For required fields)
+    - **test**
+      - **StepDefinitions**: Include E2E test class scenario and API Scenario
+      - **resources**: Include Feature file and test data
+  - **README.md**: This file, which provides an overview of the project
+  - **pom.xml**: Dependency management files for Java (Maven).
